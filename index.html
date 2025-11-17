@@ -10,6 +10,10 @@
     <link rel="preload" href="fonts/infini-bold.woff" as="font" type="font/woff" crossorigin>
     <link rel="preload" href="styles.css" as="style">
     
+    <!-- Preconnect pour Google Analytics -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
@@ -46,6 +50,15 @@
       ],
       "email": "samuel@boulery.com"
     }
+    </script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-37580VPECX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-37580VPECX');
     </script>
 </head>
 <body>

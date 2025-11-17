@@ -1,8 +1,8 @@
 // Web Vitals Monitoring
-// Optionnel : à intégrer avec votre service d'analytics (Google Analytics, Plausible, etc.)
+// Intégration avec Google Analytics 4
 
 function sendToAnalytics(metric) {
-  // Exemple d'intégration avec Google Analytics 4
+  // Intégration avec Google Analytics 4
   if (typeof gtag !== 'undefined') {
     gtag('event', metric.name, {
       value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
@@ -12,7 +12,7 @@ function sendToAnalytics(metric) {
     });
   }
   
-  // Exemple d'intégration avec Plausible
+  // Intégration avec Plausible (si présent)
   if (typeof plausible !== 'undefined') {
     plausible('Web Vital', {
       props: {
