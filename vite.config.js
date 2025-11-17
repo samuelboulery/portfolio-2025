@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import viteCompression from 'vite-plugin-compression';
 
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production' && process.env.GITHUB_REPOSITORY ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/` : '/',
   publicDir: 'public',
   build: {
     minify: 'terser',

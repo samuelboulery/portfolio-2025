@@ -124,6 +124,22 @@ Fichiers de configuration disponibles :
 - `npm run preview` - Prévisualise le build
 - `npm run lint` - Lint le code (si ESLint configuré)
 
+## 🚀 Déploiement GitHub Pages
+
+Le projet est configuré pour se déployer automatiquement sur GitHub Pages :
+
+1. **Activer GitHub Pages** dans les paramètres du repo :
+   - Settings → Pages
+   - Source : GitHub Actions
+
+2. **À chaque push sur `main`**, le workflow :
+   - Build le projet avec Vite
+   - Déploie automatiquement le dossier `dist/` sur GitHub Pages
+
+3. **URL du site** : `https://[votre-username].github.io/portfolio_2025/`
+
+**Note** : Si votre repo s'appelle différemment, modifiez la valeur `base` dans `vite.config.js`.
+
 ## 📝 Notes
 
 - Les polices Infini sont chargées localement
