@@ -1,0 +1,21 @@
+{
+  "name": "portfolio-2025",
+  "version": "1.0.0",
+  "description": "Portfolio de Samuel Boulery",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext js,html --report-unused-disable-directives --max-warnings 0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0",
+    "vite-plugin-compression": "^0.5.1",
+    "terser": "^5.36.0"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5"
+  }
+}
+

@@ -1,15 +1,15 @@
-// Attendre que GSAP soit chargé et que le DOM soit prêt
-document.addEventListener('DOMContentLoaded', function() {
-    // Vérifier que GSAP est disponible
-    if (typeof gsap === 'undefined') {
-        console.error('GSAP n\'est pas chargé');
-        return;
-    }
+import { gsap } from 'gsap';
+import './analytics.js';
 
+// Vérifier les préférences de mouvement réduit
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Attendre que le DOM soit prêt
+document.addEventListener('DOMContentLoaded', function() {
     // Animation typographique pour "Coming soon"
     const titleWords = document.querySelectorAll('.coming-soon-title .word');
     
-    if (titleWords.length > 0) {
+    if (titleWords.length > 0 && !prefersReducedMotion) {
         // Animation lettre par lettre pour un effet "typing" élégant
         titleWords.forEach((word, wordIndex) => {
             const letters = word.textContent.split('');
@@ -34,11 +34,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
         });
+    } else if (titleWords.length > 0) {
+        // Pas d'animation si mouvement réduit
+        titleWords.forEach((word) => {
+            word.style.opacity = '1';
+            word.style.transform = 'none';
+        });
     }
 
     // Animation d'entrée pour la description
     const description = document.querySelector('.description');
-    if (description) {
+    if (description && !prefersReducedMotion) {
         gsap.to(description, {
             opacity: 1,
             y: 0,
@@ -46,9 +52,10 @@ document.addEventListener('DOMContentLoaded', function() {
             ease: 'power2.out',
             delay: 1.2
         });
+    } else if (description) {
+        description.style.opacity = '1';
+        description.style.transform = 'none';
     }
-
-    // Les boutons sont visibles par défaut, pas d'animation
 });
 
 // Gestion du Dark Mode
@@ -88,6 +95,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             setTheme(newTheme);
+        });
+        
+        // Gérer la navigation au clavier
+        themeToggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                themeToggle.click();
+            }
         });
     }
 })();

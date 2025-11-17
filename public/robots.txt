@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://samuel.boulery.com/sitemap.xml
+

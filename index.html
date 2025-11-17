@@ -5,13 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="UX/UI Designer spécialisé en Design Systems, j'explore l'IA, l'accessibilité et la création d'expériences digitales qui allient efficacité et esthétique.">
     <title>Samuel Boulery – Portfolio</title>
+    
+    <!-- Preload ressources critiques -->
+    <link rel="preload" href="fonts/infini-bold.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="styles.css" as="style">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="author" content="Samuel Boulery">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Samuel Boulery – Portfolio">
+    <meta property="og:description" content="UX/UI Designer spécialisé en Design Systems, j'explore l'IA, l'accessibilité et la création d'expériences digitales qui allient efficacité et esthétique.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://samuel.boulery.com">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Samuel Boulery – Portfolio">
+    <meta name="twitter:description" content="UX/UI Designer spécialisé en Design Systems, j'explore l'IA, l'accessibilité et la création d'expériences digitales qui allient efficacité et esthétique.">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Samuel Boulery",
+      "jobTitle": "UX/UI Designer",
+      "description": "Spécialisé en Design Systems, j'explore l'IA, l'accessibilité et la création d'expériences digitales qui allient efficacité et esthétique.",
+      "url": "https://samuel.boulery.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/samuel-boulery/"
+      ],
+      "email": "samuel@boulery.com"
+    }
+    </script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     <button class="theme-toggle" aria-label="Basculer entre mode clair et sombre">
         <svg class="theme-toggle-icon theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -36,7 +74,7 @@
             </h1>
         </header>
         
-        <main>
+        <main id="main-content">
             <p class="description">
                 Actuellement quelque part entre Figma, café et lignes de code. Retour prévu très bientôt.
             </p>
@@ -52,8 +90,14 @@
         </main>
     </div>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
 </body>
 </html>
 
