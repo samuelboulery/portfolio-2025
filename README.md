@@ -124,21 +124,23 @@ Fichiers de configuration disponibles :
 - `npm run preview` - Prévisualise le build
 - `npm run lint` - Lint le code (si ESLint configuré)
 
-## 🚀 Déploiement GitHub Pages
+## 🚀 Déploiement Netlify
 
-Le projet est configuré pour se déployer automatiquement sur GitHub Pages :
+Le projet est configuré pour se déployer automatiquement sur Netlify :
 
-1. **Activer GitHub Pages** dans les paramètres du repo :
-   - Settings → Pages
-   - Source : GitHub Actions
+1. **Configuration Netlify** (déjà fait via `netlify.toml`) :
+   - Build command : `npm run build`
+   - Publish directory : `dist`
+   - Node version : 20
 
-2. **À chaque push sur `main`**, le workflow :
-   - Build le projet avec Vite
-   - Déploie automatiquement le dossier `dist/` sur GitHub Pages
+2. **À chaque push sur `main`**, Netlify :
+   - Build automatiquement le projet avec Vite
+   - Déploie le dossier `dist/` (fichiers bundlés)
+   - GSAP est inclus dans le bundle, plus d'erreur de module
 
-3. **URL du site** : `https://[votre-username].github.io/portfolio_2025/`
-
-**Note** : Si votre repo s'appelle différemment, modifiez la valeur `base` dans `vite.config.js`.
+3. **Vérification** :
+   - Assurez-vous que dans les paramètres Netlify, le "Publish directory" est bien `dist`
+   - Le "Build command" doit être `npm run build`
 
 ## 📝 Notes
 
